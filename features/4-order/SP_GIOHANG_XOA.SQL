@@ -1,0 +1,9 @@
+CREATE PROC SP_GIOHANG_XOA 
+    @MAKH INT,
+    @MAMH INT
+AS BEGIN 
+    DELETE GIOHANG
+    WHERE 
+        MAKH = @MAKH AND 
+        MAMH = @MAMH
+END;

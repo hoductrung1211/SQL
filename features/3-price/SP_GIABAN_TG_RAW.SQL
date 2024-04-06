@@ -1,0 +1,21 @@
+CREATE PROC SP_GIABAN_TG_RAW
+    @TG DATE = NULL
+AS
+BEGIN
+    IF @TG IS NULL
+        SET @TG = GETDATE()
+
+    SELECT
+        GB.*
+    FROM GIABAN GB
+        INNER JOIN (
+        SELECT
+            MAMH,
+            MAX(TG_APDUNG) AS TG_APDUNG_GANNHAT
+        FROM GIABAN
+        WHERE TG_APDUNG < @TG
+            GROUP BY MAMH
+        ) AS GB_GANNHAT
+        ON GB.MAMH = GB_GANNHAT.MAMH
+            AND GB.TG_APDUNG = GB_GANNHAT.TG_APDUNG_GANNHAT
+END;
