@@ -1,1 +1,0 @@
-SELECT * FROM VIEW_DonHangCuaCuaHang

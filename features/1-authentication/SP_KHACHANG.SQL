@@ -1,5 +1,10 @@
--- To get info of Customers or just a Customer
+--==--== TEST CASES ==--==--
+-- 1. Lấy danh sách khách hàng
+EXEC SP_KHACHHANG;
+-- 2. Lấy thông tin 1 khách hàng
+EXEC SP_KHACHHANG @MAKH = 2;
 
+GO;
 ALTER PROC SP_KHACHHANG
     @MAKH INT = NULL
 AS BEGIN 

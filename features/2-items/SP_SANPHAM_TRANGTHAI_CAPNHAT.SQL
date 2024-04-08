@@ -1,3 +1,10 @@
+--==--== WORKFLOW ==--==--
+-- 1. Kiểm tra Sản phẩm tồn tại
+-- 2. Nếu TẮT trạng thái sản phẩm thì kiểm tra tổng số lượng mặt hàng của Sản phẩm
+--      a. Nếu Sản phẩm còn số lượng thì dừng tiến trình.
+--      b. Nếu Sản phẩm không còn số lượng thì xóa hết thông tin Mặt hàng trong Giỏ hàng.
+-- 3. Cập nhật trạng thái (TẮT hoặc BẬT) Sản phẩm.
+
 CREATE PROC SP_SANPHAM_KTRA_TONTAI 
     @MASP INT,
     @DEM BIT OUTPUT

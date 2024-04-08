@@ -1,7 +1,37 @@
--- 1. Check this phone number exists & is 'Customer'
--- 2. Check password
--- 3. Check status
--- 4. Get info
+--==--== WORKFLOW ==--==--
+-- 1. Kiểm tra số điện thoại tồn tại và đã có tài khoản.
+-- 2. Kiểm tra mật khẩu
+-- 3. Kiểm tra trạng thái khóa
+-- 4. Lấy thông tin Khách hàng
+
+--==--== TEST CASES ==--==--
+-- 1. Login BUT Customer has been locked!
+EXEC SP_DANGNHAP_KHACHHANG 
+    @SDT = '0987654322',
+    @MATKHAU = '123456';
+
+-- 2. Login successfully BUT Customer has been locked!
+EXEC SP_DANGNHAP_KHACHHANG 
+    @SDT = '0987654321',
+    @MATKHAU = '123456';
+
+-- 3. Phone number's correct but password
+EXEC SP_DANGNHAP_KHACHHANG 
+    @SDT = '0987654321',
+    @MATKHAU = '1234567';
+
+-- 4. Phone number's incorrect
+EXEC SP_DANGNHAP_KHACHHANG 
+    @SDT = '098765432',
+    @MATKHAU = '123456';
+
+-- 4. Customer does NOT have an account
+EXEC SP_DANGNHAP_KHACHHANG 
+    @SDT = '0765432198',
+    @MATKHAU = '123456';
+
+GO;
+
 
 ALTER PROC SP_DANGNHAP_KHACHHANG
     @SDT VARCHAR(11),

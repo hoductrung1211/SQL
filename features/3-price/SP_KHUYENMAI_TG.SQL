@@ -1,10 +1,12 @@
--- list
--- start time - name - end time - created time - Employee - Status
+-- TRA CỨU THÔNG TIN CÁC SỰ KIỆN KHUYẾN MÃI TẠI 1 THỜI ĐIỂM (INPUT)
+-- DEFAULT: THỜI ĐIỂM HIỆN TẠI
 
-CREATE PROC SP_KHUYENMAI_TG
-    @TG DATE
-AS
-BEGIN
+ALTER PROC SP_KHUYENMAI_TG
+    @TG DATE = NULL
+AS BEGIN
+    IF @TG IS NULL
+        SET @TG = GETDATE();
+    
     SELECT
         CONVERT(varchar(18), TG_BATDAU) 'Thời gian bắt đầu',
         CONVERT(varchar(10), MAKM) + ' - ' + TENKM 'Khuyến mãi',

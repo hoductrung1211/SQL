@@ -1,3 +1,5 @@
+-- SP này không còn được sử dụng nữa.
+
 CREATE PROC SP_DANGNHAP
     @MATK INT,
     @MATKHAU NVARCHAR(100)

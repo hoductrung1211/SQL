@@ -1,8 +1,8 @@
--- 1. Check if this account both exists & is employee
---      Because it may exist but it's Customer
--- 2. Check password
--- 3. Check status
--- 4. Get info
+-- 1. Kiểm tra mã tài khoản tồn tại và có vai trò là Nhân viên.
+--      Có thể xảy ra trường hợp mã tài khoản tồn tại nhưng không phải vai trò Nhân viên
+-- 2. Kiểm tra mật khẩu
+-- 3. Kiểm tra trạng thái khóa
+-- 4. Lấy thông tin Khách hàng
 
 ALTER PROC SP_DANGNHAP_NHANVIEN
     @MATK INT,

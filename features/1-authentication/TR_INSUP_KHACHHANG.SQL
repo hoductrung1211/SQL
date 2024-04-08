@@ -1,5 +1,6 @@
--- 1. Check MAVT is NOT Nhanvien
--- 2. Check if this MATK's already existed
+--==--== WORKFLOW ==--==--
+-- 1. Kiểm tra mã vai trò của tài khoản không phải của nhân viên.
+-- 2. Kiểm tra tài khoản này chưa được sử dụng.
 
 CREATE TRIGGER TR_INSUP_KHACHHANG 
 ON KHACHHANG FOR INSERT, UPDATE
@@ -12,7 +13,7 @@ AS BEGIN
     INNER JOIN inserted I
         ON TK.MATK = I.MATK
     
-    IF @VAITRO IS NOT NULL AND @VAITRO <> 3
+    IF @VAITRO IS NOT NULL AND @VAITRO <> 3 -- MAVT = 3 IS KHACHHANG (FIXED CONSTRAINT)
     BEGIN
         ROLLBACK;
         RAISERROR(N'Không thể gán Tài khoản vai trò "Nhân viên" cho Khách hàng', 16, 1);

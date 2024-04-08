@@ -1,5 +1,10 @@
--- To get info ofEmployee list or just a Customer
+--==--== TEST CASES ==--==--
+-- 1. Lấy thông tin danh sách nhân viên
+EXEC SP_NHANVIEN;
+-- 2. Lấy thông tin 1 nhân viên
+EXEC SP_NHANVIEN @MANV = 2;
 
+GO;
 ALTER PROC SP_NHANVIEN
     @MANV INT = NULL
 AS BEGIN 

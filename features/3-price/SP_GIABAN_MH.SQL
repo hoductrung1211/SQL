@@ -1,7 +1,6 @@
--- 1. Info of Item
--- 2. Price history of this Item
---      Created date, price id, applied date, price, Employee
--- ORDER BY Now -> past
+-- THÔNG TIN GIÁ BÁN CỦA 1 MẶT HÀNG --
+-- 1. Thông tin chi tiết 1 Mặt hàng + Giá bán hiện tại
+-- 2. Lịch sử cập nhật giá bán của Mặt hàng (được sắp xếp từ Hiện tại -> Quá khứ)
 
 CREATE PROC SP_GIABAN_MH 
     @MAMH INT
